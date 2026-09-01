@@ -1,0 +1,206 @@
+/*Definición de variables*/
+:root {
+    --fuente-principal: 'Arial', sans-serif;
+    --color-texto-claro: #ffffff;
+
+    --color-fondo-header: #4791ff;
+    --color-borde-header: #023bc2;
+
+    --color-fondo-body: #e6e6e6;
+
+    --color-fondo-footer: #204f96;
+    --color-borde-footer: #001040;
+
+    --color-main-nav-fondo: #093a96;
+    --color-main-nav-borde: #3381ff;
+    --color-main-nav-fondo-hover: #1263a6;
+
+}
+
+* {
+    box-sizing: border-box;
+    padding:0;
+    margin:0;
+    font-family: var(--fuente-principal);
+}
+
+/*--------------------------------------------*/
+/*Encabezado de la página (título y slogan)*/
+/*--------------------------------------------*/
+
+header {
+    background-color: var(--color-fondo-header);
+    border-bottom: 2px solid var(--color-borde-header);
+    color: var(--color-texto-claro);
+    text-align: center;
+    padding: 20px
+}
+
+header h1 {
+    font-size: 4em;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-weight: bold;
+}
+
+/*------------------------------------------------------------------------------*/
+/*Contenido de la página (sección principal con listado de productos destacados)*/
+/*------------------------------------------------------------------------------*/
+
+/* Contenedor principal con los links del sitio */
+.flex-container-links {
+    display: flex;
+    width: 100%; /*Ocupa todo el ancho*/
+    padding: 0;
+    margin: 0;
+    gap:3px;
+    list-style: none; /*Eliminar bullet points*/
+}
+
+/* Links del sitio */
+.flex-item-links {
+    flex: 1; 
+    text-align: center;
+    background-color: var(--color-main-nav-fondo);
+    padding: 10px 0px;
+}
+
+/* Hace que los enlaces se estiren para ocupar todo el espacio de su celda */
+.flex-item-links a {
+    display: block; 
+    width: 100%;
+    box-sizing: border-box;
+    color: var(--color-texto-claro);
+    text-decoration: none;
+}
+
+.flex-item-links:hover {
+    background: var(--color-main-nav-fondo-hover);
+}
+
+@media (max-width: 768px){
+    .flex-container-links{
+        flex-direction: column;
+    }
+    .flex-item-links{
+        width:100%;
+    }
+}
+
+.main-section {
+    background-color: var(--color-fondo-body); 
+    padding-top: 20px; 
+    padding-bottom: 20px;
+}
+
+/*------------------------------------------------------------------------------*/
+/*Lista de productos destacados*/
+/*------------------------------------------------------------------------------*/
+
+#titulo-productos-destacados {
+    text-align: left;
+    margin-left:20px;
+    padding-left:30px;
+    border-left: 2px solid black;
+    padding-bottom:15px;
+    font-size:2em;
+}
+/* Contenedor de productos destacados */
+.grid-container-destacados {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /*Crea 3 columna iguales*/
+  gap: 20px;
+  margin: 20px;
+  padding: 0; /*Eliminar paddings por defecto de la lista*/
+  list-style: none; /*Eliminar bullet points*/
+}
+
+/* Productos destacados */
+.grid-item-destacado {
+  background-color: lightgrey;
+  text-align: center;
+  border-radius: 12px;
+  border: 2px solid darkgrey;
+  padding: 20px;
+}
+
+.grid-item-destacado img {
+  padding-bottom: 20px;
+  max-width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: contain;
+}
+
+.grid-item-destacado figcaption {
+  font-size: 1.5em;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.grid-item-destacado p {
+  font-size: 0.75em;
+  line-height: 1.5;
+  padding: 0px 20px 10px 20px;
+}
+
+/* Adaptación de los productos destacados a diferentes tamaños de pantalla*/
+@media (min-width: 481px) and (max-width: 768px) {
+  .grid-container-destacados {
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /*2 columnas en tablets*/
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container-destacados {
+    grid-template-columns: 1fr; /*1 columna en celulares*/
+  }
+}
+
+/*------------------------------------------------------------------------------*/
+/*Pie de página*/
+/*------------------------------------------------------------------------------*/
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px 40px;
+    background-color: var(--color-fondo-footer);
+    border-top: 2px solid var(--color-borde-footer);
+    color: var(--color-texto-claro);
+    font-size:0.9em;
+    line-height:1.5;
+    text-align: left;
+    list-style: none;
+
+    column-rule: 1px solid white;
+}
+
+.footer-nav ul {
+    list-style:none;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    color:var(--color-texto-claro);
+}
+
+/*Reorganizar pie de página en columnas si el ancho de la página disminuye*/
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .footer > div {
+        width: 100%; /*Cada sección usa todo el ancho de la pantalla*/
+        padding: 20px 0; /*Padding superior e inferior para cada bloque*/
+    }
+
+    /*Agregar borde blanco horizontal entre cada seccion del footer*/
+    .footer > div:not(:last-child) {
+        border-bottom: 1px solid white; 
+    }
+}
