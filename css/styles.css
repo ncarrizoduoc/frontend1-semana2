@@ -120,6 +120,7 @@ body {
     padding-bottom:15px;
     font-size:2em;
 }
+
 /* Contenedor de productos destacados */
 .grid-container-destacados {
   display: grid;
@@ -137,6 +138,14 @@ body {
   border-radius: 12px;
   border: 2px solid darkgrey;
   padding: 20px;
+
+  /*Hacer transformaciones más graduales*/
+  transition: transform 0.3s ease;
+}
+
+/* Productos destacados */
+.grid-item-destacado:hover {
+  transform:scale(1.02);
 }
 
 /*Imagen del juego*/
