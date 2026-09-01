@@ -47,7 +47,15 @@ header h1 {
 /*Contenido de la página (sección principal con listado de productos destacados)*/
 /*------------------------------------------------------------------------------*/
 
-/* Contenedor principal con los links del sitio */
+/*Organizar los elementos del body en filas*/
+body {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 0px;
+  min-height: 100%;
+}
+
+/* Contenedor principal con los links del sitio (Se usa Flexbox) */
 .flex-container-links {
     display: flex;
     width: 100%; /*Ocupa todo el ancho*/
@@ -94,7 +102,7 @@ header h1 {
 }
 
 /*------------------------------------------------------------------------------*/
-/*Lista de productos destacados*/
+/*Lista de productos destacados (se usa CSS Grid)*/
 /*------------------------------------------------------------------------------*/
 
 #titulo-productos-destacados {
@@ -158,7 +166,7 @@ header h1 {
 }
 
 /*------------------------------------------------------------------------------*/
-/*Pie de página*/
+/*Pie de página (Se usa Flexbox)*/
 /*------------------------------------------------------------------------------*/
 
 .footer {
@@ -185,6 +193,11 @@ header h1 {
 .footer-nav a {
     text-decoration: none;
     color:var(--color-texto-claro);
+    display:inline-block;
+}
+
+.footer-nav a:hover {
+    transform: scale(1.1);
 }
 
 /*Reorganizar pie de página en columnas si el ancho de la página disminuye*/
@@ -196,10 +209,10 @@ header h1 {
 
     .footer > div {
         width: 100%; /*Cada sección usa todo el ancho de la pantalla*/
-        padding: 20px 0; /*Padding superior e inferior para cada bloque*/
+        padding: 20px 0; /*Padding superior e inferior de 20 px para cada bloque*/
     }
 
-    /*Agregar borde blanco horizontal entre cada seccion del footer*/
+    /*Agregar borde blanco horizontal debajo de cada seccion del footer (excluye la última)*/
     .footer > div:not(:last-child) {
         border-bottom: 1px solid white; 
     }
