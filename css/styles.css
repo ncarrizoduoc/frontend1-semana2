@@ -17,6 +17,7 @@
 
 }
 
+/*Configuracion general de la pagina*/
 * {
     box-sizing: border-box;
     padding:0;
@@ -25,7 +26,7 @@
 }
 
 /*--------------------------------------------*/
-/*Encabezado de la página (título y slogan)*/
+/* Encabezado de la página (título y slogan)*/
 /*--------------------------------------------*/
 
 header {
@@ -43,9 +44,9 @@ header h1 {
     font-weight: bold;
 }
 
-/*------------------------------------------------------------------------------*/
-/*Contenido de la página (sección principal con listado de productos destacados)*/
-/*------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------*/
+/* Contenido de la página (sección principal con listado de productos destacados)*/
+/*-------------------------------------------------------------------------------*/
 
 /*Organizar los elementos del body en filas*/
 body {
@@ -73,7 +74,7 @@ body {
     padding: 10px 0px;
 }
 
-/* Hace que los enlaces se estiren para ocupar todo el espacio de su celda */
+/*Hace que los enlaces se estiren para ocupar todo el espacio de su celda*/
 .flex-item-links a {
     display: block; 
     width: 100%;
@@ -82,10 +83,12 @@ body {
     text-decoration: none;
 }
 
+/*El color de fondo de los enlaces cambia cuando se posa el mouse*/
 .flex-item-links:hover {
     background: var(--color-main-nav-fondo-hover);
 }
 
+/*Media queries para adaptar los links al disminuir el ancho de la página (se reorganizan en una columna)*/
 @media (max-width: 768px){
     .flex-container-links{
         flex-direction: column;
@@ -95,6 +98,10 @@ body {
     }
 }
 
+/*------------------------------------------------------------------------------*/
+/* Configuracion de la seccion principal*/
+/*------------------------------------------------------------------------------*/
+
 .main-section {
     background-color: var(--color-fondo-body); 
     padding-top: 20px; 
@@ -102,7 +109,7 @@ body {
 }
 
 /*------------------------------------------------------------------------------*/
-/*Lista de productos destacados (se usa CSS Grid)*/
+/* Lista de productos destacados (se usa CSS Grid)*/
 /*------------------------------------------------------------------------------*/
 
 #titulo-productos-destacados {
@@ -132,6 +139,7 @@ body {
   padding: 20px;
 }
 
+/*Imagen del juego*/
 .grid-item-destacado img {
   padding-bottom: 20px;
   max-width: 100%;
@@ -140,19 +148,21 @@ body {
   object-fit: contain;
 }
 
+/*Titulo del juego*/
 .grid-item-destacado figcaption {
   font-size: 1.5em;
   font-weight: bold;
   padding-bottom: 10px;
 }
 
+/*Descripcion del juego*/
 .grid-item-destacado p {
   font-size: 0.75em;
   line-height: 1.5;
   padding: 0px 20px 10px 20px;
 }
 
-/* Adaptación de los productos destacados a diferentes tamaños de pantalla*/
+/*Adaptación de los productos destacados a diferentes tamaños de pantalla*/
 @media (min-width: 481px) and (max-width: 768px) {
   .grid-container-destacados {
     grid-template-columns: repeat(2, minmax(0, 1fr)); /*2 columnas en tablets*/
@@ -166,9 +176,10 @@ body {
 }
 
 /*------------------------------------------------------------------------------*/
-/*Pie de página (Se usa Flexbox)*/
+/* Pie de página (Se usa Flexbox)*/
 /*------------------------------------------------------------------------------*/
 
+ /*Los elementos se organizan en una fila (el valor por defecto de flex-direction es row)*/
 .footer {
     display: flex;
     justify-content: space-between;
@@ -196,6 +207,7 @@ body {
     display:inline-block;
 }
 
+/*El tamaño del link aumenta ligeramente si el mouse se posa sobre él*/
 .footer-nav a:hover {
     transform: scale(1.1);
 }
@@ -212,7 +224,7 @@ body {
         padding: 20px 0; /*Padding superior e inferior de 20 px para cada bloque*/
     }
 
-    /*Agregar borde blanco horizontal debajo de cada seccion del footer (excluye la última)*/
+    /*Agregar borde blanco horizontal debajo de cada sección del footer (excluye la última sección)*/
     .footer > div:not(:last-child) {
         border-bottom: 1px solid white; 
     }
